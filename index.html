@@ -7,62 +7,96 @@ and open the template in the editor.
 <html>
     <head>
         <title></title>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js'></script>
+
+        <!-- Template for Directive -->
+        <script type="text/ng-template" id="myTemplate.html">
+            <div>
+            <h1>Hello World</h1>
+            <h2>Hello Da...!</h2>
+            </div>
+        </script>
+
     </head>
     <body ng-app="app">
-        <a href="#test"> [ Sathish - Angular JS ] </a>
+        <div style="margin: auto"><a  href="#test"> [ Sathish - Angular JS ] </a></div>
 
-        <ul>
-            <li><a ng-href='#route1'>Route1</a></li>
-            <li><a ng-href='#route2'>Route2</a></li>
-            <li><a ng-href='#route3'>Route3</a></li>
-        </ul>
-
-        <div id='test' ng-controller="homeController as homeCtrl">
-
-            <br> 
-            <br>
-            Company Name: <span ng-bind="homeCtrl.companyName"></span>  - <b>From  Constant</b>
-
-            <br> 
-            <br>
-            User Name: <span ng-bind="homeCtrl.userName"></span>  - <b>From  Value</b>
-
-            <br> 
-            <br>
-            {{homeCtrl.wService()}} - <b>From Service</b>
-
-            <br> 
-            <br>
-            {{homeCtrl.wFactory()}} - <b>From Factory</b>
-
-            <br>
-            <br>
-            {{companyName}} - <b>From Scope Variable</b>
-
-            <br>
-            <br>
-            {{homeCtrl.environment}} - <b>From Provider</b>
-
-
-            <br>
-            <br>
-            {{customerName}} - <b>Factory from different module</b>
-
+        <div style="border: 1px solid #777777; background-color: #CCCCCC;
+             padding: 10px; border-radius: 20px; width: 50%;">
+            <ul>
+                <li><a ng-href='#route1'>Route1</a></li>
+                <li><a ng-href='#route2'>Route2</a></li>
+                <li><a ng-href='#route3'>Route3</a></li>
+            </ul>
         </div>
+        <br> 
+        <br>
+        <div id='test' ng-controller="homeController as homeCtrl">
+            <div style="border: 1px solid #777777; background-color: #CCCCCC;
+                 padding: 10px; border-radius: 20px; width: 50%;">
+                Company Name: <span ng-bind="homeCtrl.companyName"></span>  - <b>From  Constant</b>
 
-        <br>
-        <br>
-        <b> Router Will rendered here </b>
-        <div style="height: 200px; border: 1px solid"  ng-view></div>
+                <br> 
+                <br>
+                User Name: <span ng-bind="homeCtrl.userName"></span>  - <b>From  Value</b>
 
+                <br> 
+                <br>
+                {{homeCtrl.wService()}} - <b>From Service</b>
+
+                <br> 
+                <br>
+                {{homeCtrl.wFactory()}} - <b>From Factory</b>
+
+                <br>
+                <br>
+                {{companyName}} - <b>From Scope Variable</b>
+
+                <br>
+                <br>
+                {{homeCtrl.environment}} - <b>From Provider</b>
+
+
+                <br>
+                <br>
+                {{customerName}} - <b>Factory from different module</b>
+
+                <br>
+                <br>
+                <b> Router Will rendered here </b>
+                <div style="height: 200px; border: 1px solid"  ng-view></div>
+
+            </div>
+
+            <br>
+            <br>
+            <div style="border: 1px solid #777777; background-color: #CCCCCC;
+                 padding: 10px; border-radius: 20px; width: 50%;">
+
+                <b> <u> Custom Directives </u> </b>
+
+                <div hello></div>
+
+                <div hello-world-from-script-template></div>
+
+                <div hello-world-from-external-template></div>
+
+                <div hello-world-dynamic>
+                    <div hello-world-transclude></div>
+                </div>
+
+            </div>
+        </div>
         <br>
         <br>
-        <div ng-include="'file.html'"></div>        
+        <div ng-include="'file.html'"></div>
     </body>
 </html>
 
@@ -128,7 +162,10 @@ and open the template in the editor.
                 var promise = $http(config).then(
                   function(response) { console.log(response); }, 
                   function(response) { console.error(response); } 
-                );          
+                );
+        
+               //Variable for Directive
+               $scope.name = "Dude...."; 
         
             });
 
@@ -201,6 +238,86 @@ and open the template in the editor.
                     controller: 'route3',
                     controllerAs: 'r3'
                 })
+    });
+    
+    //Basic Directive 
+    ezWeb.directive('hello', function() {
+        //Retrun directive definition
+        return {
+            //Basic directive info
+            //Compile process info
+            template: '<h4>Welcome to custom directive</h4>'
+        };
+    });
+    
+    //1 Directive [Script Template]
+    ezWeb.directive('helloWorldFromScriptTemplate', function() {
+        return {
+            //templateUrl: 'myTemplate.html'
+        };
+    });
+    
+    //2 Directive  [External Html file Template]
+    ezWeb.directive('helloWorldFromExternalTemplate', function() {
+        return {
+            templateUrl: 'route1.html'
+        };
+    });
+    
+    //3 Directive  [Dynamic Variable Template]
+    ezWeb.directive('helloWorldDynamic', function() {
+        return {
+            template: '<br><i>Nice Day ... Dynamic Variable! {{name}} <ng-transclude></ng-transclude></i>',
+            transclude: true,
+             compile: function(elem, attr) {
+                
+                console.log("compile[helloWorldDynamic] called.....!");
+                console.log(angular.element(elem));
+                
+                return {
+                    pre: function(scope, elem, attr) {
+                      console.log("Pre Link[helloWorldDynamic] : called.....!");
+                      console.log(angular.element(elem));  
+                    },
+                    post: function(scope, elem, attr) {
+                      console.log("Post Link[helloWorldDynamic] :  called.....! ");
+                      console.log(angular.element(elem));
+                    }
+                };
+            }
+        };
+    });
+    
+    //4 Directive [Transclude, pre post, compile]
+    ezWeb.directive('helloWorldTransclude', function() {
+        return {
+            restrict: 'AECM',
+            transclude: true,
+            //require: "^helloWorldDynamic",
+            //replace: true, [Replace can be used only when no tranclude]
+            template: '<br><i>Nice Day ... Transcule, Compile, Pre, Post! <ng-transclude></ng-transclude></i>',
+            compile: function(elem, attr) {
+                
+                console.log("compile[helloWorldTransclude] called.....!");
+                console.log(angular.element(elem));
+                elem.css('border', '1px solid green');
+                
+                // Pre or post can access scope elem, compile cannot acess scope element
+                return {
+                    pre: function(scope, elem, attr) {
+                      console.log("Pre Link[helloWorldTransclude] : called.....!");
+                      console.log(angular.element(elem));  
+                    },
+                    post: function(scope, elem, attr) {
+                      console.log("Post Link[helloWorldTransclude] :  called.....!");
+                      console.log(angular.element(elem));
+                    }
+                };
+            },
+            controller: function($scope) {
+                console.log("Child[helloWorldTransclude] from other parent directive[helloWorldDynamic]");
+            }
+        };
     });
 
 </script>
