@@ -16,6 +16,7 @@ window.onload =init;
 ```
 
 - Angular uses **jquery(JQlite)** to parse the **Angular** template.
+- Below in Pseudo code of angularjs compilation.
 
 ``` javascript 
 window.onload = function() {
