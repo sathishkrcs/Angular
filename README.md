@@ -4,7 +4,7 @@ Angular Boot Process
 - Load Html into browser.
 - If you have any css, scripts are downloaded and initialized by browser.
 - Your Script has to be loaded once DOM is ready.
-- Js has event callback called #window.onload so you have to initialize your application code into the callback.
+- Js has event callback called **window.onload** so you have to initialize your application code into the callback.
 
 ``` javascript
 function init() {
