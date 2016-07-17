@@ -15,6 +15,29 @@ var init = function() {
 window.onload =init;
 ```
 
+- Angular uses **jquery(JQlite)** to parse the **Angular** template.
+
+``` javascript 
+window.onload = function() {
+  var $rootElement = angular.element(window.document);
+  var modules = [
+    'ng',
+    'myApp',
+    function($provide) {
+      $provide.value('$rootElement', $rootElement);
+    }
+  ];
+}
+
+var $injector = angular.injector(modules);
+var $compile = $injector.get('compile');
+var $compileToLink = $compile($compile);
+var $rootScope = $injector.get('$root$scope');
+$compileToLink($rootScope);
+$rootScope.apply();
+}
+```
+
 
 #Type Script
 https://learnxinyminutes.com/docs/typescript/
