@@ -29,12 +29,12 @@ window.onload = function() {
   ];
 }
 
-var $injector = angular.injector(modules);
-var $compile = $injector.get('compile');
-var $compileToLink = $compile($compile);
-var $rootScope = $injector.get('$root$scope');
-$compileToLink($rootScope);
-$rootScope.apply();
+  var $injector = angular.injector(modules);
+  var $compile = $injector.get('compile');
+  var $compileToLink = $compile($compile);
+  var $rootScope = $injector.get('$root$scope');
+  $compileToLink($rootScope);
+  $rootScope.apply();
 }
 ```
 
