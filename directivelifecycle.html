@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="demo" >
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            div {
+                padding: 15px;
+                margin: 5px;
+            }
+        </style>	
+        <script src="lib/angular.min.js"></script>
+        <script>
+            var app = angular.module('demo', []);
+            app.directive('dir1', function() {
+                return {
+                    template: "<div> Hello </div>",
+                    compile: function(ele, attr) {
+                        console.log('dir1:compile..');
+                        //JQlite api
+                        //console.dir(attr);
+
+                        ele.css('border', '1px solid green');
+
+                        ele.on('mouseover', function(event) {
+                            console.log('mouse over');
+                        });
+
+                        return {
+                            pre: function(scope, ele, attr) {
+                                console.log('dir1:preLink');
+
+                                ele.on('click', function(event) {
+                                    console.log('clicked');
+                                });
+                                scope.tnrName = 'Subramanian';
+
+                            },
+                            post: function(scope, ele, attr) {
+                                console.log('dir1:postLink');
+                            }
+                        };
+
+                    }
+
+                };
+            });
+
+        </script>
+    </head>
+    <body>
+        <div dir1 myColor="grey"></div>
+    </body>
+</html>

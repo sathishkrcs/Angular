@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="easyWeb">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+            //Create App
+            var easyWeb = angular.module('easyWeb', []);
+            //Build Controller
+            easyWeb.controller('WelcomeController', ['$scope', '$log', function($scope, $log) {
+                  //Add model
+                  var welcomemessage='Hello'
+                 
+                  this.message ='Welcome';
+                  this.sayHello=function(){
+                      return welcomemessage;
+                  }
+
+               }]);
+        </script>
+    </head>
+    <body>
+        <div>
+            <div ng-controller="WelcomeController as welcome">
+               {{welcome.message}}
+               {{$scope.message}}
+               {{welcome.sayHello()}}
+            </div>
+        </div>
+    </body>
+</html>

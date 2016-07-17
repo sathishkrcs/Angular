@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="easyWeb">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script>
+            //Create App
+            var easyWeb = angular.module('easyWeb', []);
+            //Build Controller
+            easyWeb.controller('WelcomeController',
+                    ['$scope', '$log', 'companyName', 'version',
+                        'WelcomeService', 'WelcomeServiceFactory', 'GreeterService',
+                        function($scope, $log, companyName, version,
+                                wService, wFactory, greeterProvider) {
+                            $scope.company = companyName;
+                            $scope.ver = version;
+                            $scope.hello = wService.sayHello();
+                            $scope.factoryMessage = wFactory.greet();
+                            //provider
+                            $scope.providerMessage = greeterProvider;
+                            console.log($scope.factoryMessage);
+                            console.log($scope.providerMessage.message + " " 
+                                    + $scope.providerMessage.whom);
+
+
+                        }]);
+            //Value object
+            easyWeb.value('companyName', {name: 'CTS', addr: 'chennai'});
+            easyWeb.value('companyName', {name: 'google', addr: 'chennai'});
+
+            //Constant Object
+            easyWeb.constant('version', '1.0');
+            easyWeb.constant('version', '2.0');
+
+
+            //Service
+            easyWeb.service('WelcomeService',
+                    ['companyName', function(companyName) {
+
+                            //Data + behavioiur
+                            //data
+                            this.message = 'Welcome Service';
+                            //Behaviour
+                            this.sayHello = function() {
+                                return 'Hello ' + companyName.name;
+                            };
+
+                        }]);
+            //Factory
+            easyWeb.factory('WelcomeServiceFactory', [function() {
+
+                    //function declared;
+                    var WelcomeService = function() {
+                        var greeter = 'Hello How are you ?';
+                        this.message = 'Welcome';
+                        this.greet = function() {
+                            return greeter;
+                        };
+                    };
+                    var WelcomeServiceV2 = {
+                        greet: function() {
+                            return 'Hello How are you?';
+                        }
+                    };
+                    // return new WelcomeService();
+                    //return WelcomeServiceV2;
+
+                    /**
+                     return new function() {
+                     var greeter = 'Hello How are you ?';
+                     this.message = 'Welcome';
+                     this.greet = function() {
+                     return greeter;
+                     };
+                     };
+                     **/
+                    return {
+                        greet: function() {
+                            return 'Hello How are you?';
+                        }
+                    };
+
+                }]);
+
+            //Provider
+            easyWeb.provider('GreeterService', [function() {
+
+                    //Hold your api logic
+                    var greeter = {
+                        message: 'default Message',
+                        whom: 'default whom',
+                        from: 'default from'
+                    };
+
+                    return {
+                        //configuration logic
+                        setConfig: function(value) {
+                            greeter.message = value.message;
+                            greeter.whom = value.whom;
+                            greeter.from = value.from;
+                        },
+                        //Get is provider api which returns your object
+                        $get: function() {
+                            return greeter;
+                        }
+                    };
+
+                }]);
+            //Provider configuration
+            easyWeb.config(['GreeterServiceProvider', function(gSProvider) {
+                    gSProvider.setConfig(
+                            {message: 'Are y Angular js Developer?'
+                                , whom: 'Ram',
+                                from: 'HR Team'});
+                }]);
+
+
+        </script>
+    </head>
+    <body>
+        <div>
+            <div ng-controller="WelcomeController">
+                {{company.name}}
+                From Value:  {{company.addr}}
+                From Constant :{{ver}}
+                From Service :{{hello}}
+                From Factory :{{factoryMessage}}
+            </div>
+        </div>
+    </body>
+</html>

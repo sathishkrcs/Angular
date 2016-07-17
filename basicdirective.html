@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="easyWeb">
+    <head>
+        <title>Basic directive</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+        <script type="text/ng-template" id="mytemplate.html">
+            <div>
+            <h1>Welcome</h1>
+            <h2>Hello</h2>
+            </div>
+        </script>
+
+        <script>
+var easyWeb = angular.module('easyWeb', []);
+
+easyWeb.directive('hello', function() {
+
+    //return directive defintion
+    return{
+        //1.basic directive information //2.compile Process information
+        template: '<strong>Welcome to Custom Directive</strong>'
+
+    };
+
+});
+easyWeb.directive('helloWorld', function() {
+
+    //return directive defintion
+    return{
+        //1.basic directive information //2.compile Process information
+        template: '<strong>Welcome to Custom Directive</strong>'
+
+    };
+
+});
+easyWeb.directive('greeter', function() {
+
+    //return directive defintion
+    return{
+        //1.basic directive information //2.compile Process information
+        templateUrl: 'mytemplate.html'
+
+    };
+
+});
+easyWeb.directive('greeter', function() {
+
+    //return directive defintion
+    return{
+        //1.basic directive information //2.compile Process information
+        templateUrl: 'mytemplate.html'
+
+    };
+
+});
+easyWeb.directive('customerInfo', function() {
+
+    //return directive defintion
+    return{
+        //1.basic directive information //2.compile Process information
+        templateUrl: 'customer-template.html'
+
+    };
+
+});
+
+        </script>
+    </head>
+    <body>
+        <div hello></div>
+        <div hello-world></div>
+        <div greeter></div>
+        <div customer-info></div>
+    </body>
+</html>

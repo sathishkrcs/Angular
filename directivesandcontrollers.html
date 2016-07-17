@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="easyWeb">
+    <head>
+        <title>Basic directive</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="lib/angular.min.js"></script>
+
+
+        <script>
+            var easyWeb = angular.module('easyWeb', []);
+            
+            easyWeb.controller('DirectiveController', ['$scope', function($scope) {
+                    $scope.name = 'Subramanian';
+                }]);
+
+            easyWeb.directive('hello', function() {
+
+                //return directive defintion
+                return{
+                    //1.basic directive information //2.compile Process information
+                    template: '<strong>Welcome to {{name}}</strong>'
+
+                };
+
+
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div ng-controller="DirectiveController">
+            <div hello></div>
+        </div>
+
+    </body>
+</html>
