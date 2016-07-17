@@ -31,10 +31,10 @@ window.onload = function() {
 }
 
   var $injector = angular.injector(modules);
-  var $compile = $injector.get('compile');
-  var $compileToLink = $compile($compile);
+  var $compile = $injector.get('compile'); //Static changes update
+  var $compileToLink = $compile($compile); // Dynamic chages update(Addig listeners)
   var $rootScope = $injector.get('$root$scope');
-  $compileToLink($rootScope);
+  $compileToLink($rootScope); 
   $rootScope.apply();
 }
 ```
