@@ -105,7 +105,8 @@
                 //http://caolan.github.io/async/ - async library for to solve this issue
                 
                 const config = {
-                    url: "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood4&key=Y2343",
+                    url: "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyl" +
+                      "and&destination=Universal+Studios+Hollywood4&key=Y2343",
                     method: "GET"
                 };
                 
