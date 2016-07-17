@@ -1,0 +1,452 @@
+
+   CSS Programming:
+
+	CSS is a programming language based on rules.
+
+	Rule based based language.
+
+	Rules are defined  as set of "Selectors".
+
+	Rules are processed by Browser "Rule Engine" /CSS Engine.
+
+	CSS Engine is a runtime process the rules and apply sytles
+	to DOM Elements.
+
+
+	Style Rule --------Processed by engine -------Appled to DOM 	Elements.
+
+	How to start CSS Style Program?
+
+	 We can write CSS Style in three ways
+
+	1.Internal style sheet.
+		Style sheet is written inside web page ,inside head 
+		element
+		<head>
+			<style>
+				//Write CSS Rules
+			</style>
+		</head>
+	2.External style sheet
+		Style sheet is written outside web page,is linked 
+	  inside web page
+		External style should be saved as "filename.css"
+		
+		Linking the external style sheet into web page.
+		<head>
+			<link href="filename.css">
+		</head>
+	3.Inline style sheet.
+
+		Style sheet is written as part of element
+
+		<p style="styleproperties">
+
+	
+	How to write Rules?
+
+		Rules are written by selectors
+
+	Syntax:
+
+		
+		<style>
+		Selector /Selectors {
+			property:value;
+			property:value;
+			
+		}	
+		</style>
+			
+	Eg:
+
+	 Apply the background color "blue" and font-family "Arial"
+	 to entire body.
+	       body {
+			 
+		   background:#eeee123;
+		   font-family:"Arial"	
+		}
+
+	
+	 Apply font-family "Arial" to entire p inside body	.
+	      body p {
+		  font-family:"Times New Romon";
+	      }
+
+	Selectors Type:
+	
+	1.Element Selector
+	2.Id Selector
+	3.class selector
+	4.CSS 3 Child Selectors
+	5.Sibling Selectors
+	6.Attribute Selectors
+	7.Pseudo-classes
+	8.Pseudo-elements.
+
+	
+	1.Element Selector
+
+		The element selector selects based on the element name.
+
+	 p {
+
+		text-align:center;
+		color:red;
+	 }
+
+	2.Id selector
+		ID Selector uses the id attribute of an HTML tag to
+	find the specific element.
+
+	Apply ID Selector Style:
+
+		#Idname {
+			
+			text-align:left;
+			color:blue;	
+		}
+	 <p id="pone">This is paragraph one</p>
+         <p id="ptwo">This is paragraph two</p>
+         <p id="pthree">This is paragraph three</p>
+
+
+	3.Class Selector:
+		
+		The class selector finds elements with the specfic 		class.
+		
+		The class selector uses the HTML Class attribute.
+
+		The class attribute starts with .classname
+
+		.classname {
+
+			
+		 }
+
+	   Coimbining Selectors:
+	
+	   Suppose if you want apply common Styles to set of elements
+
+	    p,h1,h2{
+		 
+	    }
+	   
+	  Suppose some elements share same id or 
+          class Name.
+
+	
+	  <div id="container">
+		<p id="pone">This is maincontainer </p>
+	  </div>
+
+	  <div id="anothercontainer">
+		<p id="pone">This is maincontainer </p>
+	  </div>
+	  
+	  #container #pone{
+
+
+	  }
+
+	  #container .pone{
+
+	  }
+    
+          <div>
+		<p>This is paragraph</p>
+		<h1>This is Heading 1</h1>
+		<h2>This is Heading 2</h2>
+
+	  </div>
+	  
+          div p{
+
+
+	  }
+
+	 Writing External Style sheet:
+	-------------------------------
+	1.Write external style sheet and save it as "filename.css"
+
+	2.link the style
+		 <link rel="stylesheet" href="main.css">
+	
+
+        Child Selectors:
+
+	div > h1
+		Target any element that is child of the preceding element.
+		Here it targets any H1 that is direct child of a div tag.
+ 	<div>
+            <header>
+                <h1>Content</h1>
+            </header>
+            <h1>Div Content</h1>
+        </div>
+        <div>
+            <h1>Another Div content</h1>
+        </div>
+
+
+h1 + p
+
+  Targets any elements that is  both a sibling and directly
+preceded by the first element.
+
+ <div>
+            <h1>Heading 1</h1>
+            <p>Followed by h1</p>
+            <p>Followed by p</p>
+
+            <aside>
+                <h1>Inside aside</h1>
+                <p>Paragraph inside aside but child of h1</p>
+                <p>Paragraph inside aside but child of p</p>
+
+            </aside>
+        </div>
+
+
+h1~p
+Targets any element  that is both a sibling and preceded by the first
+element.
+Here it would target paragraph only if it were preceded by an h1 
+tag and both were children of same parent.
+
+        <div>
+            <h1>Heading 1</h1>
+            <p>Followed by h1</p>
+            <p>Followed by p</p>
+
+            <aside>
+                <h1>Inside aside</h1>
+                <p>Paragraph inside aside but child of h1</p>
+                <p>Paragraph inside aside but child of p</p>
+
+            </aside>
+        </div>
+         <p>This is not followed by h1 as parent</p>
+
+Attribute Selectors:
+
+Gives you the ability to target selectors based on attributes  
+and attribute values
+
+
+1.tag[attribute] - a[href]
+	Targets any element that contains specfied  attribute. 
+Here selector would target  any  link tag with an href attribute.
+
+	<nav>
+		<a href="home.html">home</a>
+		<a href="index.html">index</a>
+		<a href="store.html">store</a>
+	</nav>
+
+
+2.tag[attribute="value"] - a[href="home.html"]
+	Targets any element that possesses the attribute value.
+	<nav>
+		<a href="home.html">home</a>
+		<a href="index.html">index</a>
+		<a href="store.html">store</a>
+	</nav>
+
+
+3.tag[attribute~="string"]-img[alt~="thumbnail"]
+
+	Targets an element where the attribute value is a whitespace 
+separated list of words,one of which matches the value exactly.
+	
+	<figure>
+		<img src="" alt="flower thumbnail">
+		<img src="" alt="sky thumbnail">
+		<img src="" alt="flower large">
+	</figure>
+
+
+4.a[lang|="en"]
+
+	Targets an element where the attribute value is either 
+        the exact value,or begining with value and follwed 
+	immediately by "-".
+
+	<nav>
+		<a href="#" lang="en">Content</a>
+		<a href="#" lang="en-US">Content</a>
+		<a href="#" lang="fr">Content</a>
+	</nav>
+
+
+5.a[href^="http://"]
+
+	Targets an element where the attribute value  appears
+  	at the begining of the string 	value. 
+	Here it would match all link tags with a href attribute 
+        begining in "http://"
+
+	<nav>
+		<a href="http://www.google.com" lang="en">google</a>
+		<a href="https://live.com/login.aspx" lang="en-US">hotmail</a>
+	</nav>
+
+6.a[href$=".pdf"]
+	
+	Targets an element  where  the attribute value 
+	appears at end of the string value.
+	Here it would match all links with a href attribute
+        ending in ".pdf".
+
+
+	<nav>
+		<a href="brochure.pdf">Brochure</a>
+		<a href="contact.html">Contact</a>
+	</nav>
+
+7.div[id*="main"]
+
+	Targets an element where the attribute value appears
+	anywhere within the string value.
+	Here it would match all div tags that had an id attribute 
+	containing the word "main". values are case sensitive.
+
+	<div id="main">
+
+	</div>
+
+	<div id="maincontent">
+
+	</div>
+
+	<div id="subcontent">
+	</div> 
+
+
+
+Pseudo-class UI Selectors:
+
+	Style interactive forms
+
+	Allows you to target form and application elements
+	based on element state.
+
+
+	:enabled
+		matches user interface elements that are enabled
+		The following example will apply the rule to all input 
+		elements that are currently 	enabled.
+	 input:enabled {
+		 
+	 }
+
+	:disabled
+	 matches user interface elements that are disabled
+
+
+	:checked
+	 matches elements like checkboxes or radio buttons that are 
+	 checked
+
+
+
+
+
+
+
+Structural pseudo-classes:
+
+1.Pseudo-class :nth-child()
+	The :nth-child() pseudo-class represents an element
+	that has an+b siblings before it in the document tree, 
+	for any positive integer or zero value of n, and 
+	has a parent element.
+
+
+	selector:nth-child(an+b){ properties 
+
+	The examples of an+b are as follows:
+ 	:nth-child(2n) /* represents every even element */
+ 	:nth-child(even) /* same, represents every even element */
+ 	:nth-child(2n+1) /* represents every odd element */
+ 	:nth-child(odd) /* same, represents every odd element */
+ 	:nth-child(10n-1) /* represents the 9th, 19th, 29th, etc, element */
+
+
+	tr:nth-child(2n){
+  		 background-color: yellow;
+	 }
+	<table>
+    		<tr><td>This is first row.</td></tr>
+   		<tr><td>This is second row.</td></tr>
+    		<tr><td>This is third row.</td></tr>
+   		<tr><td>This is fourth row.</td></tr>
+       </table>
+
+
+2.Pseudo-class :first-child  , :last-child
+
+	The :first-child pseudo-class represents an element 
+	that is the first child of some other element.
+	Same as :nth-child(1).
+
+	div p:first-child{
+
+	}
+
+	div p:last-child{
+
+	}
+
+	<div>
+	    <p>This is paragraph 1</p>
+            <p>This is paragraph 2</p>
+            <p>This is paragraph 3</p>
+            <p>This is paragraph 4</p>
+            <p>This is paragraph 5</p>
+            <p>This is paragraph 6</p>
+            <p>This is paragraph 7</p>
+            <p>This is paragraph 8</p>
+            <p>This is paragraph 9</p>
+            <p>This is paragraph 10</p>
+       </div>
+
+The negation pseudo-classes:
+
+Pseudo-class :not
+	The :not pseudo-class represents an element that is not
+	represented by its argument
+
+	Syntax:
+	selector:not(){ properties }
+
+	Example:
+	 p:not(#example){
+   		background-color: yellow;
+	 }
+
+	
+	<p>This is a paragraph.</p>
+  	<p id="example">This is a paragraph.</p>
+  	<p>This is a paragraph.</p>
+
+Universal Selector:
+	
+	* { } -Select all elements in the web page.
+
+-----------------------------End of Selectors-----------------------
+
+
+
+
+
+
+
+
+
+
+	  
+
+
+	

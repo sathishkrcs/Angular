@@ -1,0 +1,745 @@
+Agenda:
+ 
+What is web?
+
+Web is distributed sharing information through networks
+called internet
+
+What is internet?
+ Internet is network where we can exchange data.
+
+Why web was created? who created web?
+Tim berners lee
+To develop distributed information system.
+
+Browsers:
+1.Line mode web browser
+2.Netscap navigator
+
+History of CSS:
+
+CSS Goal is to separate content and presentation.
+
+
+1994 Håkon W Lie, published,Cascading HTML style sheets -- a proposal
+at Web Confererence.At the same time many style language languages
+also presented WWW not decided to go with any style language.
+
+1995 WWW became separate organziation and many joined with organization,started fully funcitonal.
+
+1996 again WWW held Web Conference,Håkon W Lie and Bert published
+again CSS with implementation, many agreed the CSS could be
+adopated for separating content and styling .
+
+The first CSS1.0 Spec was published in 1996
+
+CSS is Rule base DSL 
+
+CSS is based on key-value
+
+Syntax:
+
+rule{
+ background-color:#999;
+}
+
+Here rule is called "selector"
+
+
+HTML - HTML + Styling + scripting + plugins
+
+////////////////////////////////////////////////
+
+In February 1997 CSS got its own working group
+inside W3C.
+
+The second CSS 2.0 Spec was published in 1998.
+	This spec not fully implemented in any browser till date
+
+Why?
+1.DOT Com bubbles - 1999
+2.2011 -Sep - Twin tower attack
+
+
+The thrid CSS 2.1 Spec was published in 2004
+	Revisied version of 2.0.The current standard implemented in all browsers.
+
+W3C pulled back CSS 2.1 Spec as working Draft,released as again as candidate recommendation in 2007 where it remains.
+
+
+The Web Continues to evolve
+ Mobiles,tablets,more devices started accessing web.
+
+Challenge for Web Developement community was how to deliver
+content for next generation devices which access web and internet.
+
+
+ W3C Saw and decided that web is not "Fixed Width".
+
+
+
+
+
+W3C published next generation cross browser ,device style language and content preparation language
+             
+                    "HTML 5 and CSS3".
+
+
+CSS 3 Capabilities:
+
+Style can be applied based on screen width;resolution;aspect ratio
+orientation.
+
+CSS 3 gives media Query through which you can plugin Styles to
+devices and formats content accordingly.
+///////////////////////////////////////////////////
+
+Responsive Design
+
+1.Different devices
+2.Different Os
+3.Different interface modes- keyboard,mouse,touch.
+4.Different Color density and pixels
+
+Responsive web design is the practice of building a website suitable to work on every device and every screen size, no matter how large or small, mobile or desktop. 
+
+The responsive web design term itself was coined, and largely developed, by Ethan Marcotte.
+
+Web Design:
+
+Things you must know
+
+1.Layouts
+
+2.Content
+     Text,images,Videos
+
+3.Colors
+
+4.fonts
+/////////////////////////////////////
+How to start css coding?
+
+css coding can be written in two ways
+1.internal style 
+2.External style
+
+Rules: selectors
+////////////////
+
+1.Element selector
+    based on html element , we can apply style
+
+        <div>
+            <h1>This is Heading</h1>
+        </div>
+        <div>
+            <h1>This is Heading</h1>
+        </div>
+  Find "h1" any where in the document and apply the
+  style.
+
+ID Selector
+	
+	ID Selector is selector which is based on id attribute of the html element.
+     <style>
+            #notes{
+                color:red;
+            }
+        </style>
+<h1 id="notes">This is notes</h1>
+<h1>This is notes 2</h1>
+<h1>This is notes 3</h1>
+<h1>This is notes 4</h1>
+
+
+1.3.Class Selector
+
+	Class selector apply style to elements having class attribute.
+
+Class selectors are resuable selectors
+
+class selectors are used by many frameworks like 
+bootstrap
+
+class selectors can be used to apply multiple styles
+to single element.
+
+	Class Selector
+        .classname{
+
+	 }
+
+<h2 class='classname'>This is class Selector</h2>
+
+///////////////////////////////////////////////
+Coimbining Selectors:
+	
+   Suppose if you want apply common Styles to set of elements
+
+	    p,h1,h2{
+		 
+	    }
+#nav, #feature, #footer {
+				
+  background-color: #efefef;
+				
+}
+			
+.column1, .column2, .column3
+{
+
+}
+
+Child Selectors:
+<div>
+   <p>This is para</p>
+</div>
+
+div - is parent
+p - child
+
+  
+	  #container #pone{
+
+
+	  }
+
+	  #container .pone{
+
+	  }
+  <div id="container">
+		<p id="pone">This is maincontainer </p>
+	  </div>
+
+	  <div id="anothercontainer">
+		<p id="pone">This is maincontainer </p>
+	  </div>
+	
+//////////////////////////////////////////////////////
+External style sheet:
+////////////////////
+
+main.css
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 24, 2016, 3:44:01 PM
+    Author     : admin
+*/
+.redcolor{
+    color:red
+}
+.greencolor{
+    color:green;
+}
+.fontstyle{
+    font-family: Arial, Verdana, sans-serif;
+}
+.backgroundstyle{
+    background-color: #ff0033;                               
+}
+
+<link href="main.css" rel="stylesheet">
+
+///////////////////////////////////////////////////
+
+Coding Standard:
+How to start css coding?
+Coding Practices : in css
+
+			Top   -------Common Styles
+			 |		 |
+			Down	     specific Styles
+
+<style>
+	     /* -------- color guide ---------- 
+            #3c6b92 : main blue
+            #6acce2 : light blue
+            #2c566a : teal accent
+            #193742 : dark blue
+            #e1d8b9 : sand accent
+            #cb7d20 : orange accent
+            #51341a : brown
+            #995522 : dark orange (used for links or high contrast accents)
+            #cb202a : red accent (this color does not encode well, use only for small accents)
+            #896287 : purple
+
+            */
+
+            /* ----- Style sheet TOC ----------------
+                  ^1 Global constants
+                      ^2 CSS reset
+                      ^3 Global classes
+                      ^4 Home page layout
+                      ^5 Top-level layout
+                      ^6 Region detail styles
+                              ^6a Header
+                              ^6b Navigation
+                              ^6c Main Content
+                                    ^6d data tables
+                                    ^6e spotlight region
+                                    ^6f forms
+                            ^6g Sidebar
+                            ^6h Footer
+            */
+
+
+	</style>
+
+//////////////////////////////////////////////////////
+
+Viewport - The place where elements are drawn or rendered
+    
+Screen Resolution: 1366 X 768
+		     W x H
+
+Block level element is element which takes full width of the parent.
+parent generally body/screen width
+
+lnline elements do not take full width of the the parent.The width
+of the element is total width of the element itself.
+
+In html every element is box.
+h1,p,hyperlink,img........
+
+Box is rectangle shape.
+
+which has four sides
+	Clock wise Top,Right,Bottom,Left
+Space:
+	margin,padding
+  margin is space allocated outside box
+  padding is also space but which is allocated inside box
+
+border:
+     Every box can have border
+
+every box has height and width
+
+width = parent
+height = element height
+
+
+
+
+
+//////////////////////////
+
+Calculation:
+
+Points:
+
+1.Findout totalwidth of your container
+
+Totalwidth = 900px
+
+section1 = 400px
+section2 = 500px
+//////////////////////////////////////////////////
+	
+ positional Properties:
+
+CSS Posistion property helps to remove the element from	the document flow.
+
+	there are two property:
+ float : left | right | none
+ position: static | fixed | relative |aboslute 
+
+  clear property clears the unncessary floated space
+   clear : left | right | both
+
+  div{
+   
+    position: static | fixed | relative | aboslute 
+  }
+
+
+ 
+   Generally position property works based on
+   the below properties.
+
+   top:10xp;bottom:10px;right:10px;left:10px;
+
+static:
+
+      static property is default property for positing elements.
+      when you spcify the static the element will go in the document     normal flow only.
+      static does not have top,bottom,right,left properties
+
+Relative:
+	 This type of positioning is probably the most confusing and misused.
+	 What it really means is "relative to itself"
+	 if position:relative,and you if you dont declare top,bottom,left,right properties
+	 it becomes static.
+
+
+Position property recommandation:
+
+relative + absolutive  - coimbation:
+
+  relative is set to container box
+  absolute is set to child boxes
+
+http://paste.ubuntu.com/17848864/
+
+
+Design:
+
+1.Fixed width design - Based on px values
+2.Responsive /Fluid /Fliexble design - based % values
+
+Responsive web design:
+
+Fluid Design:
+ -------------
+  Fluid means flixble design
+  that means your layout width should be
+  flixble
+  
+
+ How to make fluid design?
+
+ when we’re thinking flexibly, we instead need to translate a design created into something more fluid, something more proportional.
+How do we begin? Where do we begin?
+ 
+         "Convert PX TO Proportional" 
+	
+	  "PX to %"
+
+RWD :The ingredients
+to create a responsive design, it takes three core ingredients:
+
+1. A flexible typesetting / typography,
+2. A flexible, grid-based layout,
+3. Flexible images and media, and
+4. Media queries, a module from the CSS3 specification.
+
+RWD Starts:
+ typography/typesetting/font.
+ ----------------------------
+In CSS
+	font-size:10px;
+
+
+What is default font size?
+
+ Understand how to set font-size flexible to
+ various screen resoultions.
+
+ 
+Generally font-size of any browser is "16px".
+
+  em unit
+
+  px,em are units in web to represent values.
+
+  px ------Fixed value
+	if i set font-size=16px means, 16px font 
+	is rendered in all screens(desktop,mobile,tablet,bigscreens)
+        16px might be good for desktop browsers.
+ 
+  em ------Dynamic value
+	font-size=? instead of it is going to be dynamic
+	based on screen size.
+
+For example, suppose the font-size of 
+
+the body of the page is set to 1em, 
+with the browser standard of 1em = 16px;
+
+ 1em=16px
+ font-size =2em; 32px
+
+ if the font-size you want is 12px, then you should specify 0.75em (because 12/16 = 0.75). 
+
+ 12px =0.75em
+ 
+"Coding practice followed by many UI People"
+
+Similarly, if you want a font size of 10px, then specify 0.625em (10/16 = 0.625); for 22px, specify 1.375em (22/16).
+
+ 10PX = 0.625em
+
+ font-size =100% 
+
+100%=16px
+
+////////////////////////////////////////////////////
+
+How to calculate em according to screen size?
+
+result=target % context
+
+target = your req (child element
+context = your parent(parent element)
+
+child pixels / parent pixels = child ems
+
+parent pixel = 16px
+
+child pixel /my req pixel =16px;
+
+ 16 % 16 = 1em 
+
+Responsive font value
+
+Case study:
+
+            body{
+                font-size:100%;  /* 16px */
+            }
+
+		24 - Target(Your Requirement)
+                16 - context           
+
+            h1{
+                font-size: 24px; /* 24/16=1.5em */
+                font-style: italic;
+                font-weight: normal;
+            }
+
+		11px - Target
+		16px - context
+		0.6875em
+
+            h1 a {
+                font: bold 11px Calibri, Optima,
+                    Arial, sans-serif;
+                color: #747474;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+	Plugin your values to get flexble values:
+
+	24px / 16 px = 1.5em;
+
+///////////////////////////////////////////////
+
+target === your requirement
+context====Environment where your element is
+
+target ====child element
+context====parent element
+
+
+   Here "body is parent to h1"
+   I want to set font-size is 24px to h1 - This is my target.
+   Parent ("Here body") font-size is 16px - This is my parent or Context.
+
+  Simple formula to get em:
+
+	target /context =result
+
+        or - Simple way
+
+	child pixels / parent pixels = child ems
+
+	or
+
+	em = desired element pixel value / parent element font-size in pixels
+	
+	Plugin your values to get flexble values:
+
+	24px / 16 px = 1.5em;
+   
+  
+  Again a is hyperlink but its parent is h1
+  
+  h1 is now parent or context
+  a is now target or child
+
+  11px / 24px =0.458333333333333em;
+
+///////////////////////////////////////////////////////////
+
+Responsive Layouts:
+
+width:900px ---------900px to mobile,tablet
+
+width:flulid ---%
+900px--------8888.999%
+
+target/context
+900px / 1000px = 88888.0000%
+width:88888.0000%
+
+<div id="wrapper">
+ <div id="header">  800/900 = 0.8888888888888889%
+ </div>
+</div>
+
+//////
+To get % value
+target/context * 100= 
+
+/////////////////////////////////////////////////////
+
+FLEXIBLE MARGINS AND PADDING:
+-----------------------------
+target % context = value 
+
+Before applying forumla
+
+you have to know what target and context for padding and margin.
+
+target is our req:48px left side 48 % ?
+
+ margin ==== (Left)10px % context(?)
+
+margin and padding we can understand target easily.
+ 
+Margin:
+
+1. When setting flexible margins on an element,
+
+ "your context is the width of the element’s container".
+
+
+
+eg:
+
+	<div>
+		<h1>This is demo</h1>
+	</div>
+	
+	div{
+	    width:500px;
+	}
+	h1{
+	  margin-left:10px; / target % context 10 % 500=0.02
+	}
+
+Padding:
+
+2. When setting flexible padding on an element,
+ "your context is the width of the element itself". Which makes sense, if you think about the box model: we’re describing the padding in relation to the width of the box itself.
+
+ padding result =target % context
+	        = 48px % 900px=5.33333333%
+
+//////////////////////////////////////////////////
+Images,videos,plugins,embeds
+FLUID IMAGES,VIDEOS,PLUGINS
+---------------------------
+
+To convert fluid images , no need of target % context formula
+
+
+how to convert images responsive?
+
+ set max-width:100%;
+
+img,
+embed,
+object,
+video {
+    max-width: 100%;
+}
+///////////////////////////////////////////
+Media Query:
+////////////
+
+Media queries and BootStrap
+
+Media Query:
+Media Query is css 3 specification feature
+Media query is logic which detects your screen
+size and resolution apply the style accordingly.
+
+Media Query you can think like if logic
+
+if(Desktop){
+	apply desktop css style
+}
+if(Mobile){
+	apply mobile css style
+
+}
+if(Tablet){
+	apply table css style
+}
+
+@media Query syntax:
+
+Syntax:
+
+	@media(min-width:600px){
+		apply tablet style
+	}
+	@media(min-width:900px){
+		apply desktop style
+	}
+	@media(min-width:300px){
+		apply Mobile style
+	}
+
+
+ @media (min-width: 600px) {
+        img {
+          width: 60%;               /* set the image width */
+          margin-left: 5%;          /* breathing room for text */
+        }
+      }/*/mediaquery*/
+
+
+ @media(min-width:600px){
+	apply style
+ }
+
+ @media(min-width:600px){
+	change horzintal menu to vertical menu.
+       back-ground:red;
+ }
+
+ @media(min-width:300px){
+	change horzintal menu to vertical menu.
+       back-ground:red;
+ }
+
+ @media(min-width:900px){
+	change vertical to horzintal menu
+       back-ground:red;
+ }
+//////////////////////
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Insert title here</title>
+        <style>
+            @media (min-width :600px) {
+                body {
+                    background-color: red;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    </body>
+</html>
+////////////////////////
+BootStarp:
+//////////
+
+Bootstarp set up:
+
+1.bootstrap lib
+2.jquery lib
+
+
+
+
+
+
+
+
+
+
+

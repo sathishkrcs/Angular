@@ -1,0 +1,70 @@
+Color Formats in CSS 3:
+//////////////////////
+CSS Color module level 3
+
+Colors can be defined for an element's
+foreground,background,or border.
+
+color:#f00
+background-color:#cc
+border-color:#000
+
+Defining Colors in CSS:
+///////////////////////
+In the past,hexadecial notation or color keywords have been used to define color
+
+
+CSS 2.1 allowed color to be defined as RGB Values
+
+
+CSS3 adds the SVG 1.0 color keywords to the
+specification
+
+for more on availble keywords visit the color module
+http://www.w3.org/TR/css3-color/#svg-color
+
+
+New Color FORMATS IN CSS 3
+
+RGB (in CSS2)
+red,green,blue
+
+RGBA
+red,green,blue,alpha
+
+HSL
+hue,saturation,lightness
+
+HSLA
+hue,saturation,lightness,alpha
+
+CMYK
+cyan,magenta,yellow,black
+
+RGB Syntax:
+RGB is an additive color model. Red,green and blue are mixed together to
+form colors.
+As an additive method,100% of all three colors would
+produce white.
+
+In CSS,RGB values can be written as three comma-separated
+values ranging from 0-255, or percentages
+ranging from 0- 100%
+
+
+Hue Saturation and Lightnes:
+///////////////////////////
+See picture
+
+syntax:
+hsl(0,10%,95%)
+0 - hue 0 to 360 accepted
+10% - lightness 0 to 100
+95% - saturation
+
+opacity : 0.5 --- Transparent property ( 0.5) 50% transpanercy
+
+
+	
+
+		
