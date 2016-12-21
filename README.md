@@ -54,3 +54,23 @@ https://learnxinyminutes.com/docs/git/
 
 #ES5 to ES6
 http://lebab.io/try-it
+
+
+#HTML - NA
+Slides - http://www.devopsschool.com/tutorial/devops/slides/pdf.zip
+ 
+#Git
+HTML - http://www.devopsschool.com/tutorial/git/
+Slides - http://www.devopsschool.com/tutorial/git/slides/pdf.zip
+
+#Docker 
+HTML - http://www.devopsschool.com/tutorial/docker/
+Slides - http://www.devopsschool.com/tutorial/docker/slides.zip
+
+#Jenkins
+HTML - http://www.devopsschool.com/tutorial/jenkins/
+Slides - http://www.devopsschool.com/tutorial/jenkins/slides.zip
+
+#Nexus
+HTML - http://www.devopsschool.com/tutorial/nexus/
+Slides - http://www.devopsschool.com/tutorial/nexus/slides/ppt.zip
