@@ -60,8 +60,8 @@ http://lebab.io/try-it
 Slides - http://www.devopsschool.com/tutorial/devops/slides/pdf.zip
  
 #Git
-HTML - http://www.devopsschool.com/tutorial/git/
-Slides - http://www.devopsschool.com/tutorial/git/slides/pdf.zip
+- HTML - http://www.devopsschool.com/tutorial/git/
+- Slides - http://www.devopsschool.com/tutorial/git/slides/pdf.zip
 
 #Docker 
 HTML - http://www.devopsschool.com/tutorial/docker/
