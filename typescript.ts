@@ -23,3 +23,18 @@ enum list2 { a=1, b=2, c=3 }
 console.log(list2.a);
 
 //*********************************************************************
+//Comple type using interface
+
+interface profile {
+	name: string;
+	id: number;
+}
+
+let getId = function (newProfile: profile) {
+	return newProfile.id;
+}
+
+let x = getId({ id: 10, name: 'cts' });
+console.log(x);
+//*********************************************************************
+
