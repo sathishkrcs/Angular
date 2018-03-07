@@ -60,4 +60,20 @@ class Car {
 const newcar = new Car('red');
 newcar.getColor();
 
+//*********************************************************************
+class Car {
+	private color: string;
+	public price: number;
+	protected model: string;
+}
+
+class Swift extends Car {
+	constructor(color, price, model) {
+		super();   
+		this.color = color; //Throws error
+		this.price = price;
+		this.model = model; 
+	}
+}
+
 
