@@ -37,4 +37,27 @@ let getId = function (newProfile: profile) {
 let x = getId({ id: 10, name: 'cts' });
 console.log(x);
 //*********************************************************************
+//Classes
+class Car {
+	private color: string;
+}
+
+const newcar = new Car();
+newcar.color = "red"; //Throws error beign private
+//*********************************************************************
+class Car {
+	private color: string;
+
+    constructor(clr) {
+		this.color = clr;
+	}
+
+	 getColor() {
+		return this.color;
+	}
+}
+
+const newcar = new Car('red');
+newcar.getColor();
+
 
